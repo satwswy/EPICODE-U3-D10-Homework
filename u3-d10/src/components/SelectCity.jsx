@@ -34,7 +34,7 @@ export default class SelectCity extends Component {
                     <Col>
                    
                         <Form.Group>
-                            <Form.Label>Search</Form.Label>
+                            <Form.Label className='text-light'>Search</Form.Label>
                             <Form.Control
                                 type="text"
                                 placeholder="Search here"
