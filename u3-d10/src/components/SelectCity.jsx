@@ -6,7 +6,25 @@ export default class SelectCity extends Component {
     
     state = {
         searchQuery: '',
+        weather: {},
+        isLoading: true
     }
+    fetchWeather = async () => {
+        try {
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.searchQuery}&appid=59128235a57bd2ffeeecebfea30bd70f`
+            const response = await fetch(url)
+            const data = await response.json()
+            console.log(data)
+            this.setState({
+                weather: data,
+                isLoading: false
+            })
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
   render() {
     return (
         <Container>
@@ -14,6 +32,7 @@ export default class SelectCity extends Component {
             <Col md={8}>
                 <Row>
                     <Col>
+                   
                         <Form.Group>
                             <Form.Label>Search</Form.Label>
                             <Form.Control
@@ -23,13 +42,16 @@ export default class SelectCity extends Component {
                                 onChange={e => this.setState({ searchQuery: e.target.value })}
                             />
                         </Form.Group>
-                        <Button></Button>
+                        <button 
+                        onClick={this.fetchWeather}
+                        >Submit</button>
+                        
                         
                     </Col>
                 </Row>
             </Col>
             <Col md={4}>
-                <Weather  query={this.state.searchQuery}/> 
+                <Weather  weather={this.state.weather}/> 
             </Col>
         </Row>
     </Container>
