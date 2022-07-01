@@ -23,6 +23,7 @@ export default class SelectCity extends Component {
                                 onChange={e => this.setState({ searchQuery: e.target.value })}
                             />
                         </Form.Group>
+                        <Button></Button>
                         
                     </Col>
                 </Row>
