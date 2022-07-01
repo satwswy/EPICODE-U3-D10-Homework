@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import Weather from './components/Weather';
+import SelectCity from './components/SelectCity';
 
 function App() {
   return (
     <div className="App">
-      <Weather query="London"/>
+      <SelectCity />
     </div>
   );
 }
