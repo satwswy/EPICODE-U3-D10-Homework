@@ -11,7 +11,7 @@ export default class SelectCity extends Component {
     }
     fetchWeather = async () => {
         try {
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.searchQuery}&appid=59128235a57bd2ffeeecebfea30bd70f`
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.searchQuery}&appid=59128235a57bd2ffeeecebfea30bd70f&units=metric`
             const response = await fetch(url)
             const data = await response.json()
             console.log(data)
